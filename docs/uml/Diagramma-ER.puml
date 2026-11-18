@@ -84,9 +84,6 @@ entity TURNO {
 
 MEDICO ||--o{ TURNO : svolge
 
-' =========================
-' PRENOTAZIONI
-' =========================
 
 entity PRENOTAZIONE {
     * id_prenotazione : INTEGER <<PK>>
