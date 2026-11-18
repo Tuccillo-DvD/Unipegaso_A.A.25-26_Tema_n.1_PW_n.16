@@ -1,0 +1,43 @@
+@startuml
+title Prenotazione di un Esame
+
+|Paziente|
+start
+:Accede alla piattaforma;
+:Seleziona la tipologia d'esame;
+:Seleziona la data;
+
+repeat
+  :Seleziona l'orario;
+  |Sistema|
+  :Verifica la disponibilità;
+  if (Prenotazione disponibile?) then (Sì)
+    :Individua i medici qualificati;
+    :Verifica i turni dei medici;
+    :Esclude i medici non in turno;
+    :Verifica le prenotazioni esistenti;
+    :Esclude i medici già occupati;
+
+    if (Ci sono medici disponibili?) then (Sì)
+      :Conta le prenotazioni giornaliere;
+      :Ordina i medici per numero crescente;
+      :Seleziona il primo medico;
+      :Ricontrolla la disponibilità dello slot;
+    endif
+  endif
+
+  if (Non è disponibile?) then (Sì)
+    |Paziente|
+    :Visualizza un messaggio che chiede\n di scegliere un altro orario;
+  endif
+
+repeat while (Prenotazione non disponibile o nessun medico disponibile?) is (Sì) not (No)
+|Sistema|
+:Registra la prenotazione;
+:Associa paziente, esame e medico;
+:Conferma la prenotazione;
+
+|Paziente|
+:Visualizza la conferma;
+stop
+@enduml
