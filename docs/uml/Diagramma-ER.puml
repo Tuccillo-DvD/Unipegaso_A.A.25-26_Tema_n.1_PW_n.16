@@ -31,7 +31,6 @@ entity MEDICO {
     * id_medico : INTEGER <<PK, FK>>
     --
     numero_albo : VARCHAR(30) <<UNIQUE>>
-    descrizione : TEXT
 }
 
 UTENTE ||--o| PAZIENTE : profilo
@@ -111,12 +110,14 @@ entity REFERTO {
     * id_referto : INTEGER <<PK>>
     --
     id_prenotazione : INTEGER <<FK, UNIQUE>>
+    id_medico_caricante : INTEGER <<FK>>
     nome_file : VARCHAR(250)
     percorso_file : VARCHAR(500)
     data_caricamento : TIMESTAMP
 }
 
-PRENOTAZIONE ||--o| REFERTO : produce
+MEDICO ||--o{ REFERTO : carica
+PRENOTAZIONE ||--o| REFERTO : riguarda
 
 note left of PRENOTAZIONE
   Ogni prenotazione è associata
