@@ -1,0 +1,82 @@
+@startuml
+Left to right direction
+
+actor Paziente
+actor Medico
+actor Segreteria
+actor Amministratore
+
+rectangle "Piattaforma Centro Polidiagnostico PIO X" {
+usecase "Registrazione" as UC1
+usecase "Autenticazione" as UC2
+usecase "Gestione Profilo" as UC3
+usecase "Elenco Esami" as UC4
+usecase "Prenotazione Esame" as UC5
+usecase "Verifica Disponibilità" as UC6
+usecase "Ricerca Medico" as UC7
+usecase "Assegnazione Medico" as UC8
+usecase "Visualizzazione Prenotazioni" as UC9
+usecase "Annullamento Prenotazione" as UC10
+usecase "Verifica Limite Massimo 48 Ore" as UC11
+usecase "Richiesta Assistenza Segreteria" as UC12
+usecase "Elenco Referti" as UC13
+usecase "Download Referti" as UC14
+usecase "Visualizzazione Agenda" as UC15
+usecase "Turni" as UC16
+usecase "Elenco Pazienti" as UC17
+usecase "Caricamento Referto" as UC18
+usecase "Gestione Prenotazioni" as UC19
+usecase "Creazione Prenotazione" as UC20
+usecase "Modifica Prenotazione" as UC21
+usecase "Cancellazione Prenotazione" as UC22
+usecase "Gestione Agenda" as UC23
+usecase "Gestione Utenti" as UC24
+usecase "Gestione Esami" as UC25
+usecase "Gestione Turni" as UC26
+usecase "Gestione Specializzazioni" as UC27
+usecase "Configurazione Sistema" as UC28
+usecase "Consultazione Contatti" as UC29
+}
+
+Paziente -- UC1
+Paziente -- UC2
+Paziente -- UC3
+Paziente -- UC4
+Paziente -- UC5
+Paziente -- UC9
+Paziente -- UC10
+Paziente -- UC12
+Paziente -- UC13
+Paziente -- UC14
+Paziente -- UC29
+
+Medico -- UC2
+Medico -- UC15
+Medico -- UC16
+Medico -- UC17
+Medico -- UC18
+
+Segreteria -- UC2
+Segreteria -- UC19
+Segreteria -- UC20
+Segreteria -- UC21
+Segreteria -- UC22
+Segreteria -- UC23
+
+Amministratore -- UC2
+Amministratore -- UC24
+Amministratore -- UC25
+Amministratore -- UC26
+Amministratore -- UC27
+Amministratore -- UC28
+
+UC5 ..> UC6 : <<include>>
+UC5 ..> UC7 : <<include>>
+UC5 ..> UC8 : <<include>>
+UC10 ..> UC11 : <<include>>
+UC12 ..> UC10 : <<extend>>
+UC20 ..> UC6 : <<include>>
+UC20 ..> UC7 : <<include>>
+UC20 ..> UC8 : <<include>>
+
+@enduml
