@@ -1,0 +1,43 @@
+@startuml
+title Caricamento e pubblicazione del referto
+
+|Medico|
+start
+:Accede alla piattaforma;
+:Visualizza la propria agenda;
+:Seleziona la prestazione;
+:Seleziona il caricamento del referto;
+
+repeat
+ :Seleziona il documento PDF;
+ |Sistema|
+ :Verifica l'identità del medico;
+ :Verifica che il medico sia assegnato alla prestazione;
+ if (Medico autorizzato?) then (No)
+   :Blocca il caricamento;
+   :Comunica l'errore di autorizzazione;
+ endif
+
+ if (Documento valido?) then (No)
+   :Rifiuta il documento;
+   :Comunica il motivo del rifiuto;
+   |Medico|
+   :Seleziona un altro documento;
+ endif
+repeat while (Documento valido?) is (No) not (Si)
+
+  :Verifica l'esistenza della prenotazione;
+  :Verifica il formato del documento;
+  :Verifica dimensione e validità del file;
+    
+  :Salva il PDF in un'area protetta;
+  :Registra i dati del referto nel database;
+  :Collega il referto alla prenotazione;
+  :Registra data caricamento;
+  :Rende disponibile il referto al paziente;
+  |Paziente|
+  :Accede alla piattaforma;
+  :Visualizza il referto
+  :Scarica il documento PDF;
+
+@enduml
