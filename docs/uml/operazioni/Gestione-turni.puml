@@ -1,0 +1,64 @@
+@startuml
+title Gestione turni
+
+|Amministratore|
+start
+:Accede alla piattaforma;
+:Accede alla sezione gestione turni;
+:Seleziona il medico;
+:Seleziona l'operazione da effettuare;
+
+if (Tipo di operazione?) then (Creazione)
+  :Inserisce data e orario di inizio e fine;
+  |Sistema|
+  :Verifica la correttezza dei dati;
+  :Controlla eventuali sovrapposizioni\ncon altri turni del medico;
+  :Controlla eventuali incompatibilità\ncon prenotazioni già confermate;
+
+  if (Turno valido?) then (Sì)
+    :Registra il nuovo turno;
+    :Conferma l'operazione;
+    stop
+  else (No)
+    :Rifiuta la creazione del turno;
+    :Comunica il motivo;
+    stop
+  endif
+
+elseif (Modifica)
+  |Amministratore|
+  :Seleziona il turno da modificare;
+  :Modifica data e/o orario;
+
+  |Sistema|
+  :Verifica la correttezza dei dati;
+  :Controlla sovrapposizioni e prenotazioni;
+  if (Modifica valida?) then (Sì)
+    :Aggiorna il turno;
+    :Registra la modifica;
+    :Conferma l'operazione;
+    stop
+  else (No)
+    :Rifiuta la modifica;
+    :Comunica il motivo;
+    stop
+  endif
+
+else (Eliminazione)
+  |Amministratore|
+  :Seleziona il turno da eliminare;
+
+  |Sistema|
+  :Verifica l'esistenza di prenotazioni\nassociate al periodo interessato;
+  if (Esistono prenotazioni?) then (Sì)
+    :Blocca l'eliminazione;
+    :Comunica la presenza\ndi prenotazioni associate;
+    stop
+  else (No)
+    :Elimina il turno;
+    :Registra l'operazione;
+    :Conferma l'eliminazione;
+    stop
+  endif
+endif
+@enduml
