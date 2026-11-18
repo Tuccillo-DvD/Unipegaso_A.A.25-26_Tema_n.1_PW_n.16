@@ -1,0 +1,147 @@
+@startuml
+title Piattaforma CPD PIO X - Diagramma ER
+
+hide circle
+skinparam linetype ortho
+
+
+
+entity UTENTE {
+    * id_utente : INTEGER <<PK>>
+    --
+    nome : VARCHAR(30)
+    cognome : VARCHAR(30)
+    email : VARCHAR(50) <<UNIQUE>>
+    password_hash : VARCHAR(30)
+    ruolo : VARCHAR(30)
+    telefono : VARCHAR(30)
+    data_creazione : TIMESTAMP
+    attivo : BOOLEAN
+}
+
+entity PAZIENTE {
+    * id_paziente : INTEGER <<PK, FK>>
+    --
+    codice_fiscale : VARCHAR(16) <<UNIQUE>>
+    data_nascita : DATE
+    indirizzo : VARCHAR(50)
+}
+
+entity MEDICO {
+    * id_medico : INTEGER <<PK, FK>>
+    --
+    numero_albo : VARCHAR(30) <<UNIQUE>>
+    descrizione : TEXT
+}
+
+UTENTE ||--o| PAZIENTE : profilo
+UTENTE ||--o| MEDICO : profilo
+
+
+
+entity ESAME {
+    * id_esame : INTEGER <<PK>>
+    --
+    nome : VARCHAR(100)
+    descrizione : TEXT
+    durata_minuti : INTEGER
+    prezzo : DECIMAL(8,2)
+    attivo : BOOLEAN
+}
+
+entity SPECIALIZZAZIONE {
+    * id_specializzazione : INTEGER <<PK>>
+    --
+    nome : VARCHAR(100)
+    descrizione : TEXT
+}
+
+entity MEDICO_ESAME {
+    * id_medico : INTEGER <<PK, FK>>
+    * id_esame : INTEGER <<PK, FK>>
+}
+
+entity MEDICO_SPECIALIZZAZIONE {
+    * id_medico : INTEGER <<PK, FK>>
+    * id_specializzazione : INTEGER <<PK, FK>>
+}
+
+MEDICO ||--o{ MEDICO_ESAME : abilitazioni
+ESAME ||--o{ MEDICO_ESAME : eseguibile_da
+
+MEDICO ||--o{ MEDICO_SPECIALIZZAZIONE : possiede
+SPECIALIZZAZIONE ||--o{ MEDICO_SPECIALIZZAZIONE : comprende
+
+
+entity TURNO {
+    * id_turno : INTEGER <<PK>>
+    --
+    id_medico : INTEGER <<FK>>
+    data_turno : DATE
+    ora_inizio : TIME
+    ora_fine : TIME
+}
+
+MEDICO ||--o{ TURNO : svolge
+
+' =========================
+' PRENOTAZIONI
+' =========================
+
+entity PRENOTAZIONE {
+    * id_prenotazione : INTEGER <<PK>>
+    --
+    id_paziente : INTEGER <<FK>>
+    id_medico : INTEGER <<FK>>
+    id_esame : INTEGER <<FK>>
+    id_creatore : INTEGER <<FK>>
+    data_appuntamento : DATE
+    ora_inizio : TIME
+    ora_fine : TIME
+    stato : VARCHAR(20)
+    data_creazione : TIMESTAMP
+    data_annullamento : TIMESTAMP
+}
+
+PAZIENTE ||--o{ PRENOTAZIONE : effettua
+MEDICO ||--o{ PRENOTAZIONE : riceve
+ESAME ||--o{ PRENOTAZIONE : riguarda
+UTENTE ||--o{ PRENOTAZIONE : crea
+
+
+
+entity REFERTO {
+    * id_referto : INTEGER <<PK>>
+    --
+    id_prenotazione : INTEGER <<FK, UNIQUE>>
+    nome_file : VARCHAR(250)
+    percorso_file : VARCHAR(500)
+    data_caricamento : TIMESTAMP
+}
+
+PRENOTAZIONE ||--o| REFERTO : produce
+
+note left of PRENOTAZIONE
+  Ogni prenotazione è associata
+  a un solo paziente, un esame
+  e un medico.
+
+  Il medico viene assegnato
+  automaticamente dal sistema.
+end note
+
+note right of REFERTO
+  Massimo un referto
+  per prenotazione.
+
+  Il PDF viene conservato
+  in un'area protetta del server.
+end note
+
+note bottom of TURNO
+  Le disponibilità vengono
+  calcolate confrontando i turni
+  con le prenotazioni esistenti.
+end note
+
+@enduml
