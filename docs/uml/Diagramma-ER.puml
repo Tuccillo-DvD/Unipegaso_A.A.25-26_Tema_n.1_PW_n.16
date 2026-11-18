@@ -44,7 +44,7 @@ entity ESAME {
     nome : VARCHAR(100)
     descrizione : TEXT
     durata_minuti : INTEGER
-    prezzo : DECIMAL(8,2)
+    prezzo : DECIMAL(5,2)
     attivo : BOOLEAN
 }
 
