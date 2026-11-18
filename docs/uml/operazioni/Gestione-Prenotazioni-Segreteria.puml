@@ -1,0 +1,75 @@
+@startuml
+title Gestione prenotazioni della segreteria
+
+|Segreteria|
+start
+:Accede alla piattaforma;
+:Accede alla sezione prenotazioni;
+:Ricerca e seleziona il paziente;
+:Seleziona l'operazione;
+
+if (Tipo di operazione?) then (Nuova prenotazione)
+  :Seleziona esame, data e orario;
+
+  |Sistema|
+  :Verifica la disponibilità;
+  if (È disponibile?) then (No)
+    :Comunica l'indisponibilità;
+    stop
+  else (Sì)
+    :Individua i medici qualificati e disponibili;
+    :Conta le prenotazioni valide\nper ciascun medico nella giornata;
+    :Ordina i medici in ordine crescente;
+    :Seleziona il primo medico;
+  
+    :Ricontrolla la disponibilità;
+    if (Ancora disponibile?) then (No)
+      :Comunica che lo slot\nnon è più disponibile;
+      stop
+    else (Sì)
+      :Registra la prenotazione;
+      :Associa paziente, esame e medico;
+      :Registra la segreteria\ncome soggetto che ha creato la prenotazione;
+      :Conferma la prenotazione;
+      stop
+    endif
+  endif
+
+elseif (Modifica prenotazione)
+  |Segreteria|
+  :Seleziona la prenotazione;
+  :Modifica i dati desiderati;
+
+  |Sistema|
+  :Verifica i nuovi dati;
+  :Controlla la disponibilità\nse cambia data, orario o esame;
+  if (Nuovi dati validi e disponibili?) then (No)
+    :Rifiuta la modifica;
+    :Comunica il motivo;
+    stop
+  else (Sì)
+    :Aggiorna la prenotazione;
+    :Registra la modifica;
+    :Conferma l'aggiornamento;
+    stop
+  endif
+
+else (Annullamento)
+  |Segreteria|
+  :Seleziona la prenotazione;
+  :Valuta la richiesta di annullamento;
+  if (Richiesta accettata?) then (Sì)
+    |Sistema|
+    :Aggiorna lo stato a ANNULLATA;
+    :Registra data e autore dell'operazione;
+    :Conferma l'annullamento;
+    stop
+  else (No)
+    |Sistema|
+    :Mantiene invariata la prenotazione;
+    :Registra l'esito della richiesta;
+    :Comunica il mancato annullamento;
+    stop
+  endif
+endif
+@enduml
