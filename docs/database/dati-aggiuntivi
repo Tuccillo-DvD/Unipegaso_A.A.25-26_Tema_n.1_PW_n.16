@@ -88,4 +88,50 @@ VALUES
  ('Dario', 'Giglio', 'dariogiglio@email.it',
  crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111140'),
 
+ ('Mario', 'Moccia', 'mariomoccia@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111141'),
 
+ ('Dario', 'Moccia', 'dariomoccia@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111142'),
+
+ ('Annalaura', 'Moccia', 'annalauramoccia@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111143'),
+
+ ('Rita', 'Moccia', 'ritamoccia@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111144'),
+
+ ('Pio', 'Moccia', 'piomoccia@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111145'),
+
+ ('Natasha', 'Moccia', 'natashamoccia@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111146'),
+
+ ('Carlo', 'Cerbone', 'carlocerbone@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111147'),
+
+ ('Daniele', 'Cerbone', 'danielecerbone@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111148'),
+
+ ('Ugo', 'Cerbone', 'ugocerbone@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111149'),
+
+ ('Emilio', 'Cerbone', 'emiliocerbone@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111150'),
+
+ ('Andrea', 'Cerbone', 'andreacerbone@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111151'),
+
+ ('Siria', 'Cerbone', 'siriacerbone@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3331111152'),
+
+ ('Anna', 'Cecconi', 'annacecconi@segpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'SEGRETERIA', '0811111112'),
+
+ ('Bryan', 'Cecconi', 'bryancecconi@segpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'SEGRETERIA', '0811111113'),
+
+ ('Josh', 'Cecconi', 'joshcecconi@segpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'SEGRETERIA', '0811111114'),
+
+ ('Iginio', 'Romano', 'iginioromano@adminpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'ADMIN', '0817777777');
