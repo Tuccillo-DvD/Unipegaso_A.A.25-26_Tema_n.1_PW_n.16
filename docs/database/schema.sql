@@ -8,7 +8,7 @@ CREATE TABLE utente (
     nome VARCHAR(30) NOT NULL,
     cognome VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password_hash VARCHAR(30) NOT NULL,
+    password_hash VARCHAR(250) NOT NULL,
     ruolo VARCHAR(30) NOT NULL,
     telefono VARCHAR(30),
     data_creazione TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
