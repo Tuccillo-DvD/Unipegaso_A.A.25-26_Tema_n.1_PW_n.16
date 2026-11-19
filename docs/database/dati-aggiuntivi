@@ -135,3 +135,232 @@ VALUES
 
  ('Iginio', 'Romano', 'iginioromano@adminpiox.it',
  crypt('Pass123', gen_salt('bf')), 'ADMIN', '0817777777');
+
+
+INSERT INTO paziente
+(id_paziente, codice_fiscale, data_nascita, indirizzo)
+VALUES
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'alessiarossi@email.it'),
+    'RSSLSS33A51R679T',
+    '1993-10-31',
+    'Via Milano 22, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'francescarossi@email.it'),
+    'RSSFCS23A51R679T',
+    '1989-11-21',
+    'Via Milano 53, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'valeriobianchi@email.it'),
+    'BNCVLR23B51R379T',
+    '1999-01-13',
+    'Via Ascoli 53, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'filippobianchi@email.it'),
+    'BNCFLP23B51R379F',
+    '1999-04-13',
+    'Via Ascoli 23, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'giuseppebianchi@email.it'),
+    'BNCGSP23B51R379T',
+    '1993-05-03',
+    'Via Firenze 3, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'annaverdi@email.it'),
+    'VRDANN27E51R379H',
+    '1999-05-27',
+    'Via Firenze 23, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'guidoverdi@email.it'),
+    'VRDGUD23B51R379R',
+    '1991-09-04',
+    'Via Catanzaro 13, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'simoneverdi@email.it'),
+    'VRDSMN23B51R379R',
+    '1994-04-04',
+    'Via Catanzaro 17, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'stefanoneri@email.it'),
+    'NERSTF23B51R379D',
+    '1991-02-18',
+    'Via Avellino 11, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'gerardoneri@email.it'),
+    'NERGRD23B51R379D',
+    '1997-06-28',
+    'Via Avellino 51, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'danielaneri@email.it'),
+    'NERDNL83B21R379H',
+    '1999-01-03',
+    'Via Acerra 78, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'robertoferrari@email.it'),
+    'FRRRBT23B51R373R',
+    '1997-09-02',
+    'Via Acerra 21, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'caterinaferrari@email.it'),
+    'FRRCTR23B61R333D',
+    '1994-02-01',
+    'Via Messina 1, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'ciroferrari@email.it'),
+    'FRRCRR23A61R333W',
+    '1994-02-01',
+    'Via Messina 31, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'ferdinandoesposito@email.it'),
+    'ESPFDN23B21R333D',
+    '1997-12-04',
+    'Via Roma 1, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'jenniferesposito@email.it'),
+    'ESPJNF23B21R333D',
+    '1997-12-24',
+    'Via Roma 67, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'domenicoesposito@email.it'),
+    'ESPDMN23C23R333Q',
+    '1995-10-23',
+    'Via Roma 45, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'lucaromano@email.it'),
+    'RMNLCA23B21R333D',
+    '1990-04-13',
+    'Via Roma 72, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'gustavoromano@email.it'),
+    'RMNGTV23B21H553B',
+    '1992-11-07',
+    'Via Siena 2, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'aldoromano@email.it'),
+    'RMNALD23A21H353Y',
+    '1998-05-11',
+    'Via Siena 55, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'giovanniromano@email.it'),
+    'RMNGVN23B29H583H',
+    '1994-01-27',
+    'Via Siena 27, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'giacomoromano@email.it'),
+    'RMNGCM23B21H534L',
+    '1997-05-18',
+    'Via Livorno 21, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'kevinromano@email.it'),
+    'RMNKVN23B21H143E',
+    '1997-04-23',
+    'Via Livorno 67, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'melissaromano@email.it'),
+    'RMNMLS23T21H953B',
+    '1997-10-12',
+    'Via Venezia 29, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'laviniaromano@email.it'),
+    'RMNLVN23B21H523M',
+    '1991-06-17',
+    'Via Venezia 53, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'lucacossu@email.it'),
+    'CSSLCA23B21H553B',
+    '1996-12-27',
+    'Via Caserta 35, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'antoniogiglio@email.it'),
+    'GGLANT23B21H553E',
+    '1998-03-14',
+    'Via Caserta 23, Napoli'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'dariogiglio@email.it'),
+    'GGLDRO23B21H553B',
+    '1982-08-08',
+    'Via Caserta 32, Napoli'
+);
+
