@@ -1,1 +1,205 @@
 
+-- Estensione per generare hash bcrypt
+-- per salvare password non leggibili
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+-- Password dimostrativa per tutti gli account:
+-- Pass123
+-- La password viene salvata sotto forma di hash.
+
+INSERT INTO utente
+(nome, cognome, email, password_hash, ruolo, telefono)
+VALUES
+('Mario', 'Rossi', 'mariorossi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111111'),
+
+('Laura', 'Bianchi', 'laurabianchi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3332222222'),
+
+('Andrea', 'Verdi', 'andreaverdi@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3333333333'),
+
+('Giulia', 'Neri', 'giulianeri@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3334444444'),
+
+('Marco', 'Ferrari', 'marcoferrari@medpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'MEDICO', '3335555555'),
+
+('Anna', 'Esposito', 'annaesposito@segpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'SEGRETERIA', '0811111111'),
+
+('Paolo', 'Romano', 'paoloromano@adminpiox.it',
+ crypt('Pass123', gen_salt('bf')), 'ADMIN', '0812222222');
+
+
+INSERT INTO paziente
+(id_paziente, codice_fiscale, data_nascita, indirizzo)
+VALUES
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'mariorossi@email.it'),
+    'RSSMRA90A01F839X',
+    '1990-01-01',
+    'Via Roma 10, Napoli'
+),
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'laurabianchi@email.it'),
+    'BNCLRA85C45F839Y',
+    '1985-03-05',
+    'Via Toledo 20, Napoli'
+);
+
+
+
+INSERT INTO medico
+(id_medico, numero_albo, descrizione)
+VALUES
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'andreaverdi@medpiox.it'),
+    'NA-12345',
+    'Specialista in radiologia diagnostica'
+),
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'giulianeri@medpiox.it'),
+    'NA-23456',
+    'Specialista in cardiologia'
+),
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'marcoferrari@medpiox.it'),
+    'NA-34567',
+    'Specialista in diagnostica per immagini'
+);
+
+
+
+INSERT INTO esame
+(nome, descrizione, durata_minuti, prezzo)
+VALUES
+(
+    'Radiografia torace',
+    'Esame radiologico del torace',
+    15,
+    50.00
+),
+(
+    'Ecografia addome',
+    'Esame ecografico dell addome',
+    30,
+    80.00
+),
+(
+    'Risonanza magnetica ginocchio',
+    'Esame RM del ginocchio',
+    45,
+    150.00
+),
+(
+    'TAC torace',
+    'Tomografia computerizzata del torace',
+    30,
+    120.00
+),
+(
+    'Emocromo completo',
+    'Analisi ematologica del sangue',
+    10,
+    25.00
+);
+
+
+
+INSERT INTO specializzazione (nome, descrizione)
+VALUES
+('Radiologia', 'Diagnostica radiologica'),
+('Cardiologia', 'Diagnosi e cura delle patologie cardiache'),
+('Diagnostica per immagini', 'Tecniche di diagnostica per immagini'),
+('Medicina di laboratorio', 'Analisi e diagnostica di laboratorio');
+
+
+
+-- Andrea Verdi: radiografia e TAC
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'andreaverdi@medpiox.it'
+AND e.nome IN ('Radiografia torace', 'TAC torace');
+
+
+-- Giulia Neri: ecografia addome
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'giulianeri@medpiox.it'
+AND e.nome = 'Ecografia addome';
+
+
+-- Marco Ferrari: risonanza e emocromo
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'marcoferrari@medpiox.it'
+AND e.nome IN ('Risonanza magnetica ginocchio', 'Emocromo completo');
+
+
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Radiologia', 'Diagnostica per immagini')
+WHERE u.email = 'andreaverdi@medpiox.it';
+
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome = 'Cardiologia'
+WHERE u.email = 'giulianeri@medpiox.it';
+
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Diagnostica per immagini', 'Medicina di laboratorio')
+WHERE u.email = 'marcoferrari@medpiox.it';
+
+
+
+-- Turni dimostrativi del 1 dicembre 2026
+
+INSERT INTO turno
+(id_medico, data_turno, ora_inizio, ora_fine)
+VALUES
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'andreaverdi@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+),
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'giulianeri@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+),
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'marcoferrari@medpiox.it'),
+    '2026-12-01', '14:00', '18:00'
+);
