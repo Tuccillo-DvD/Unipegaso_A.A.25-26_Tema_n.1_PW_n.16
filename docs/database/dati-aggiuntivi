@@ -1,1 +1,91 @@
+INSERT INTO utente
+(nome, cognome, email, password_hash, ruolo, telefono)
+VALUES
+('Luigi', 'Rossi', 'luigirossi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111112'),
+
+ ('Alessia', 'Rossi', 'alessiarossi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111113'),
+
+ ('Francesca', 'Rossi', 'francescarossi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111114'),
+
+ ('Valerio', 'Bianchi', 'valeriobianchi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111115'),
+
+ ('Filippo', 'Bianchi', 'filippobianchi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111116'),
+
+ ('Giuseppe', 'Bianchi', 'giuseppebianchi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111117'),
+
+ ('Anna', 'Verdi', 'annaverdi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111118'),
+
+ ('Guido', 'Verdi', 'guidoverdi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111119'),
+
+ ('Simone', 'Verdi', 'simoneverdi@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111120'),
+
+ ('Stefano', 'Neri', 'stefanoneri@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111121'),
+
+ ('Gerardo', 'Neri', 'gerardoneri@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111122'),
+
+ ('Daniela', 'Neri', 'danielaneri@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111123'),
+
+ ('Roberto', 'Ferrari', 'robertoferrari@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111124'),
+
+ ('Caterina', 'Ferrari', 'caterinaferrari@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111125'),
+
+ ('Ciro', 'Ferrari', 'ciroferrari@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111126'),
+
+ ('Ferdinando', 'Esposito', 'ferdinandoesposito@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111127'),
+
+ ('Jennifer', 'Esposito', 'jenniferesposito@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111128'),
+
+ ('Domenico', 'Esposito', 'domenicoesposito@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111129'),
+
+ ('Luca', 'Romano', 'lucaromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111130'),
+
+ ('Gustavo', 'Romano', 'gustavoromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111131'),
+
+ ('Aldo', 'Romano', 'aldoromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111132'),
+
+ ('Giovanni', 'Romano', 'giovanniromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111133'),
+
+ ('Giacomo', 'Romano', 'giacomoromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111134'),
+
+ ('Kevin', 'Romano', 'kevinromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111135'),
+
+ ('Melissa', 'Romano', 'melissaromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111136'),
+
+ ('Lavinia', 'Romano', 'laviniaromano@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111137'),
+
+ ('Luca', 'Cossu', 'lucacossu@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111138'),
+
+ ('Antonio', 'Giglio', 'antoniogiglio@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111139'),
+
+ ('Dario', 'Giglio', 'dariogiglio@email.it',
+ crypt('Pass123', gen_salt('bf')), 'PAZIENTE', '3331111140'),
+
 
