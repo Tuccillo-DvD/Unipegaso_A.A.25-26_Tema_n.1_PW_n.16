@@ -5,12 +5,12 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 CREATE TABLE utente (
     id_utente INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    nome VARCHAR(30) NOT NULL,
-    cognome VARCHAR(30) NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    cognome VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password_hash VARCHAR(250) NOT NULL,
-    ruolo VARCHAR(30) NOT NULL,
-    telefono VARCHAR(30),
+    password_hash VARCHAR(255) NOT NULL,
+    ruolo VARCHAR(50) NOT NULL,
+    telefono VARCHAR(50),
     data_creazione TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     attivo BOOLEAN NOT NULL DEFAULT TRUE,
 
