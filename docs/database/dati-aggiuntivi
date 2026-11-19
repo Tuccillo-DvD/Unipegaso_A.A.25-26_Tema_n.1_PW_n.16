@@ -364,3 +364,79 @@ VALUES
     'Via Caserta 32, Napoli'
 );
 
+
+INSERT INTO medico
+(id_medico, numero_albo)
+VALUES
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'mariomoccia@medpiox.it'),
+    'NA-12346'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'dariomoccia@medpiox.it'),
+    'NA-12347'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'annalauramoccia@medpiox.it'),
+    'NA-12348'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'ritamoccia@medpiox.it'),
+    'NA-12349'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'piomoccia@medpiox.it'),
+    'NA-12350'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'natashamoccia@medpiox.it'),
+    'NA-12351'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'carlocerbone@medpiox.it'),
+    'NA-12352'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'danielecerbone@medpiox.it'),
+    'NA-12353'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'ugocerbone@medpiox.it'),
+    'NA-12354'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'emiliocerbone@medpiox.it'),
+    'NA-12355'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'andreacerbone@medpiox.it'),
+    'NA-12356'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'siriacerbone@medpiox.it'),
+    'NA-12357'
+);
+
