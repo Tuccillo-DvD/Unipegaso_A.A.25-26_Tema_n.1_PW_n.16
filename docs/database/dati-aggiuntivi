@@ -528,4 +528,96 @@ VALUES
 );
 
 
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'mariomoccia@medpiox.it'
+AND e.nome IN ('Radiografia torace', 'Radiografia spalla','Radiografia braccio','Radiografia polso','Radiografia mano',
+'Radiografia ginocchio', 'Radiografia caviglia', 'Radiografia piede', 'TAC torace', 'TAC testa e collo', 'TAC addome');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'dariomoccia@medpiox.it'
+AND e.nome IN ('Ecografia addome', 'Risonanza magnetica tratto colonna vertebrale', 'Risonanza magnetica torace',
+'Risonanza magnetica corpo intero');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'annalauramoccia@medpiox.it'
+AND e.nome IN ('Emocromo completo');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'ritamoccia@medpiox.it'
+AND e.nome IN ('Radiografia torace', 'Radiografia spalla','Radiografia braccio','Radiografia polso','Radiografia mano',
+'Radiografia ginocchio', 'Radiografia caviglia', 'Radiografia piede', 'TAC torace', 'TAC testa e collo', 'TAC addome');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'piomoccia@medpiox.it'
+AND e.nome IN ('Ecografia addome', 'Risonanza magnetica tratto colonna vertebrale', 'Risonanza magnetica torace',
+'Risonanza magnetica corpo intero');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'natashamoccia@medpiox.it'
+AND e.nome IN ('Emocromo completo');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'carlocerbone@medpiox.it'
+AND e.nome IN ('Radiografia torace', 'Radiografia spalla','Radiografia braccio','Radiografia polso','Radiografia mano',
+'Radiografia ginocchio', 'Radiografia caviglia', 'Radiografia piede', 'TAC torace', 'TAC testa e collo', 'TAC addome');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'danielecerbone@medpiox.it'
+AND e.nome IN ('Ecografia addome', 'Risonanza magnetica tratto colonna vertebrale', 'Risonanza magnetica torace',
+'Risonanza magnetica corpo intero');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'ugocerbone@medpiox.it'
+AND e.nome IN ('Emocromo completo');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'emiliocerbone@medpiox.it'
+AND e.nome IN ('Radiografia torace', 'Radiografia spalla','Radiografia braccio','Radiografia polso','Radiografia mano',
+'Radiografia ginocchio', 'Radiografia caviglia', 'Radiografia piede', 'TAC torace', 'TAC testa e collo', 'TAC addome');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'andreacerbone@medpiox.it'
+AND e.nome IN ('Ecografia addome', 'Risonanza magnetica tratto colonna vertebrale', 'Risonanza magnetica torace',
+'Risonanza magnetica corpo intero');
+
+INSERT INTO medico_esame (id_medico, id_esame)
+SELECT m.id_medico, e.id_esame
+FROM medico m, utente u, esame e
+WHERE m.id_medico = u.id_utente
+AND u.email = 'siriacerbone@medpiox.it'
+AND e.nome IN ('Emocromo completo');
+
 
