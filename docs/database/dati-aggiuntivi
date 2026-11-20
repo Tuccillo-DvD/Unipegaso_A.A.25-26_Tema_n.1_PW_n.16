@@ -729,3 +729,78 @@ JOIN utente u ON u.id_utente = m.id_medico
 JOIN specializzazione s
     ON s.nome ='Medicina di laboratorio'
 WHERE u.email = 'siriacerbone@medpiox.it';
+
+INSERT INTO turno
+(id_medico, data_turno, ora_inizio, ora_fine)
+VALUES
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'mariomoccia@medpiox.it'),
+    '2026-12-01', '14:00', '18:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'dariomoccia@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'annalauramoccia@medpiox.it'),
+    '2026-12-01', '14:00', '18:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'ritamoccia@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'piomoccia@medpiox.it'),
+    '2026-12-01', '14:00', '18:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'natashamoccia@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'carlocerbone@medpiox.it'),
+    '2026-12-01', '14:00', '18:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'danielecerbone@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'ugocerbone@medpiox.it'),
+    '2026-12-01', '14:00', '18:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'emiliocerbone@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'andreacerbone@medpiox.it'),
+    '2026-12-01', '14:00', '18:00'
+),
+
+(
+    (SELECT id_utente FROM utente
+     WHERE email = 'siriacerbone@medpiox.it'),
+    '2026-12-01', '09:00', '13:00'
+);
