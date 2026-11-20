@@ -440,3 +440,92 @@ VALUES
     'NA-12357'
 );
 
+INSERT INTO esame
+(nome, descrizione, durata_minuti, prezzo)
+VALUES
+(
+    'Radiografia spalla',
+    'Esame radiologico della spalla',
+    15,
+    50.00
+),
+
+(
+    'Radiografia braccio',
+    'Esame radiologico del braccio',
+    15,
+    50.00
+),
+
+(
+    'Radiografia polso',
+    'Esame radiologico del polso',
+    15,
+    50.00
+),
+
+(
+    'Radiografia mano',
+    'Esame radiologico della mano',
+    15,
+    50.00
+),
+
+(
+    'Radiografia ginocchio',
+    'Esame radiologico del ginocchio',
+    15,
+    50.00
+),
+
+(
+    'Radiografia caviglia',
+    'Esame radiologico della caviglia',
+    15,
+    50.00
+),
+
+(
+    'Radiografia piede',
+    'Esame radiologico del piede',
+    15,
+    50.00
+),
+
+(
+    'Risonanza magnetica tratto colonna vertebrale',
+    'Esame RM di un tratto della colonna vertebrale tra cervicale, lombare e dorsale',
+    45,
+    150.00
+),
+
+(
+    'Risonanza magnetica torace',
+    'Esame RM del torace',
+    45,
+    150.00
+),
+
+(
+    'Risonanza magnetica corpo intero',
+    'Esame RM corpo intero',
+    45,
+    200.00
+),
+
+(
+    'TAC testa e collo',
+    'Tomografia computerizzata della testa e collo',
+    30,
+    120.00
+),
+
+(
+    'TAC addome',
+    'Tomografia computerizzata addome',
+    30,
+    120.00
+);
+
+
+
