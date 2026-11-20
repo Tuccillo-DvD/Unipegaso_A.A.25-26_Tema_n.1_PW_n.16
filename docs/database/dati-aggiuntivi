@@ -621,3 +621,111 @@ AND u.email = 'siriacerbone@medpiox.it'
 AND e.nome IN ('Emocromo completo');
 
 
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Radiologia', 'Diagnostica per immagini')
+WHERE u.email = 'mariomoccia@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Cardiologia', 'Diagnostica per immagini')
+WHERE u.email = 'dariomoccia@medpiox.it';
+
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome ='Medicina di laboratorio'
+WHERE u.email = 'annalauramoccia@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Radiologia', 'Diagnostica per immagini')
+WHERE u.email = 'ritamoccia@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Cardiologia', 'Diagnostica per immagini')
+WHERE u.email = 'piomoccia@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome ='Medicina di laboratorio'
+WHERE u.email = 'natashamoccia@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Radiologia', 'Diagnostica per immagini')
+WHERE u.email = 'carlocerbone@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Cardiologia', 'Diagnostica per immagini')
+WHERE u.email = 'danielecerbone@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome ='Medicina di laboratorio'
+WHERE u.email = 'ugocerbone@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Radiologia', 'Diagnostica per immagini')
+WHERE u.email = 'emiliocerbone@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome IN ('Cardiologia', 'Diagnostica per immagini')
+WHERE u.email = 'andreacerbone@medpiox.it';
+
+INSERT INTO medico_specializzazione
+(id_medico, id_specializzazione)
+SELECT m.id_medico, s.id_specializzazione
+FROM medico m
+JOIN utente u ON u.id_utente = m.id_medico
+JOIN specializzazione s
+    ON s.nome ='Medicina di laboratorio'
+WHERE u.email = 'siriacerbone@medpiox.it';
