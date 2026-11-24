@@ -1,0 +1,15 @@
+from sqlalchemy import ForeignKey, String
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from database import Base
+
+
+class Medico(Base):
+    __tablename__ = "medico"
+
+    id_medico: Mapped[int] = mapped_column(
+        ForeignKey("utente.id_utente"), primary_key=True
+    )
+    numero_albo: Mapped[str] = mapped_column(String(30))
+
+    utente: Mapped["Utente"] = relationship(back_populates="medico")
