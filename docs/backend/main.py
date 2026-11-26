@@ -3,13 +3,14 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from database import get_db
-from routers import esami, medici, specializzazioni, autenticazione
+from routers import esami, medici, specializzazioni, autenticazione, utenti
 
 app = FastAPI(title="Piattaforma Centro Polidiagnostico Pio X")
 app.include_router(esami.router)
 app.include_router(medici.router)
 app.include_router(specializzazioni.router)
 app.include_router(autenticazione.router)
+app.include_router(utenti.router)
 
 @app.get("/salute")
 def salute():
