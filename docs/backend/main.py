@@ -3,9 +3,10 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from database import get_db
+from routers import esami
 
 app = FastAPI(title="Piattaforma Centro Polidiagnostico Pio X")
-
+app.include_router(esami.router)
 
 @app.get("/salute")
 def salute():
