@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent
 
 
 class Settings(BaseSettings):
-    """Impostazioni lette dal file .env."""
+    """Impostazioni lette dal file .env"""
 
     DB_HOST: str
     DB_PORT: int = 5432
