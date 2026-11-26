@@ -3,8 +3,6 @@
 -- per salvare password non leggibili
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
--- Password dimostrativa per tutti gli account:
--- Pass123
 -- La password viene salvata sotto forma di hash.
 
 INSERT INTO utente
