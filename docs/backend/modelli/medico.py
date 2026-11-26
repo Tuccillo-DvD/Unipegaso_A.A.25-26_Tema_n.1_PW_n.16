@@ -20,3 +20,10 @@ class Medico(Base):
     specializzazioni: Mapped[list["Specializzazione"]] = relationship(
         secondary=medico_specializzazione, back_populates="medici"
     )
+    @property
+    def nome(self) -> str:
+        return self.utente.nome
+
+    @property
+    def cognome(self) -> str:
+        return self.utente.cognome
